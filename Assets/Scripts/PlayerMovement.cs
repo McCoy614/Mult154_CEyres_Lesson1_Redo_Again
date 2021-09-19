@@ -8,11 +8,34 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction = Vector3.zero;
     public float speed = 10.0f;
     public GameObject respawnPoint = null;
+    private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
+
 
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
+
+        foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
+        {
+            ItemInventory.Add(item, 0);
+        }
+    }
+
+    private void AddToInventory(Item item)
+    {
+        ItemInventory[item.typeOfVeggie]++;
+    }
+         
+    private void PrintInventory()
+    {
+        string output = "";
+
+        foreach (KeyValuePair<Item.VegetableType, int> kvp in ItemInventory)
+        {
+            output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
+        }
+        Debug.Log(output);
     }
 
     private void Update()
@@ -45,9 +68,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.CompareTag("Item"))
+        {
+            Item item = other.gameObject.GetComponent<Item>();
+            AddToInventory(item);
+            PrintInventory();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
         if(other.CompareTag("Hazard"))
         {
             Respawn();
         }
     }
+
+
 }
