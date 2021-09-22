@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     private Rigidbody rbPlayer;
     private Vector3 direction = Vector3.zero;
@@ -14,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(!isLocalPlayer)
+        {
+            return;
+        }
         rbPlayer = GetComponent<Rigidbody>();
 
         foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
@@ -40,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(!isLocalPlayer)
+        {
+            return;
+        }
+
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
 
@@ -68,7 +78,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Item"))
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        if (other.CompareTag("Item"))
         {
             Item item = other.gameObject.GetComponent<Item>();
             AddToInventory(item);
@@ -78,7 +93,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Hazard"))
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        if (other.CompareTag("Hazard"))
         {
             Respawn();
         }
