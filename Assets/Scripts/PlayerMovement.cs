@@ -59,6 +59,11 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         rbPlayer.AddForce(direction * speed, ForceMode.Force);
 
         if(transform.position.z > 40)
