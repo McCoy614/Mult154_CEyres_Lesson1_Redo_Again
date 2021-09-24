@@ -8,7 +8,7 @@ public class PlayerMovement : NetworkBehaviour
     private Rigidbody rbPlayer;
     private Vector3 direction = Vector3.zero;
     public float speed = 10.0f;
-    public GameObject respawnPoint = null;
+    public GameObject[] respawnPoints = null;
     private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
 
 
@@ -19,7 +19,9 @@ public class PlayerMovement : NetworkBehaviour
         {
             return;
         }
+
         rbPlayer = GetComponent<Rigidbody>();
+        respawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
 
         foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
         {
@@ -78,7 +80,12 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Respawn()
     {
-        rbPlayer.MovePosition(respawnPoint.transform.position);
+        int index = 0;
+        while(Physics.CheckBox(respawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
+        {
+            index++;
+        }
+        rbPlayer.MovePosition(respawnPoints[index].transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
