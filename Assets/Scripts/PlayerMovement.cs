@@ -88,20 +88,21 @@ public class PlayerMovement : NetworkBehaviour
         rbPlayer.MovePosition(respawnPoints[index].transform.position);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!isLocalPlayer)
         {
             return;
         }
 
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("Item") && Input.GetKey(KeyCode.Space))
         {
             Item item = other.gameObject.GetComponent<Item>();
             AddToInventory(item);
             PrintInventory();
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
