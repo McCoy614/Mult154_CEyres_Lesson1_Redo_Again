@@ -23,27 +23,10 @@ public class PlayerMovement : NetworkBehaviour
         rbPlayer = GetComponent<Rigidbody>();
         respawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
 
-        foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
-        {
-            ItemInventory.Add(item, 0);
-        }
+        
     }
 
-    private void AddToInventory(Item item)
-    {
-        ItemInventory[item.typeOfVeggie]++;
-    }
-         
-    private void PrintInventory()
-    {
-        string output = "";
-
-        foreach (KeyValuePair<Item.VegetableType, int> kvp in ItemInventory)
-        {
-            output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
-        }
-        Debug.Log(output);
-    }
+    
 
     private void Update()
     {
@@ -87,22 +70,6 @@ public class PlayerMovement : NetworkBehaviour
         }
         rbPlayer.MovePosition(respawnPoints[index].transform.position);
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
-        if (other.CompareTag("Item") && Input.GetKey(KeyCode.Space))
-        {
-            Item item = other.gameObject.GetComponent<Item>();
-            AddToInventory(item);
-            PrintInventory();
-        }
-    }
-
 
     private void OnTriggerExit(Collider other)
     {

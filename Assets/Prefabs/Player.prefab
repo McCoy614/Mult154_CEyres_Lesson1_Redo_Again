@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7478597330013641267}
   - component: {fileID: -3343549726226355036}
   - component: {fileID: -6042415004630936999}
+  - component: {fileID: -1234688701304054554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  respawnPoint: {fileID: 0}
+  respawnPoints: []
 --- !u!114 &-3343549726226355036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,3 +186,15 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &-1234688701304054554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478597330013641277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfed3c93edf46e448f37c21e1e8b5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
