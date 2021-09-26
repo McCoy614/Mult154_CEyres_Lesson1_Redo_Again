@@ -232,7 +232,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125704497}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -857,8 +857,8 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 7478597330013641277, guid: 3cd76bf30d63e9841a7e14bcf517cb87, type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
-  m_OfflineScene: 
-  m_OnlineScene: 
+  m_OfflineScene: Assignment
+  m_OnlineScene: Assignment
   m_SpawnPrefabs:
   - {fileID: 4504761623197085981, guid: 01e7f29feff897648893d49113de7c8d, type: 3}
   - {fileID: 843158550027007137, guid: 1e0be632f974632478577bfa382c19ea, type: 3}
