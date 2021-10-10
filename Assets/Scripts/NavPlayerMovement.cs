@@ -10,12 +10,19 @@ public class NavPlayerMovement : MonoBehaviour
     float trans = 0;
     float rotate = 0;
 
+    public delegate void DropHive(Vector3 pos);
+    public static event DropHive DroppedHive;
+
     private void Start()
     {
         rgBody = GetComponent<Rigidbody>();
     }
     void Update()
     {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            DroppedHive?.Invoke(transform.position + (transform.forward * 10));
+        }
         // Get the horizontal and vertical axis.
         // By default they are mapped to the arrow keys.
         // The value is in the range -1 to 1
@@ -37,4 +44,4 @@ public class NavPlayerMovement : MonoBehaviour
         rgBody.velocity = move * speed * Time.deltaTime;
         trans = 0;
     }
-}
+} 

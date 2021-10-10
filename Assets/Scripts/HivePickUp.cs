@@ -10,7 +10,7 @@ public class HivePickUp : MonoBehaviour
 
     private void Start()
     {
-      //  NavPlayerMovement.DroppedHive += OnHiveDrop;
+     NavPlayerMovement.DroppedHive += OnHiveDrop;
     }
 
     private void OnTriggerEnter(Collider other)
