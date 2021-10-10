@@ -13,7 +13,7 @@ public class Bot : MonoBehaviour
     public GameObject target;
     public GameObject[] hidingSpots;
     private Rigidbody rbBody;
-    public BMode mode;
+    //public BMode mode;
    public enum BMode
     {
         SEEK,
@@ -36,18 +36,18 @@ public class Bot : MonoBehaviour
         rbBody = target.GetComponent<Rigidbody>();
     }
 
-    void Seek(Vector3 location)
+    public void Seek(Vector3 location)
     {
         agent.SetDestination(location);
     }
 
-    void Flee(Vector3 location)
+    public void Flee(Vector3 location)
     {
         Vector3 fleeVector = location - this.transform.position;
         agent.SetDestination(this.transform.position - fleeVector);
     }
 
-    void Pursue()
+    public void Pursue()
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
 
@@ -65,7 +65,7 @@ public class Bot : MonoBehaviour
         Seek(target.transform.position + target.transform.forward * lookAhead);
     }
 
-    void Evade()
+    public void Evade()
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
         float lookAhead = targetDir.magnitude / (agent.speed + currentSpeed);
@@ -74,7 +74,7 @@ public class Bot : MonoBehaviour
 
 
     Vector3 wanderTarget = Vector3.zero;
-    void Wander()
+    public void Wander()
     {
         float wanderRadius = 10;
         float wanderDistance = 10;
@@ -145,7 +145,7 @@ public class Bot : MonoBehaviour
 
     }
 
-    bool CanSeeTarget()
+    public bool CanSeeTarget()
     {
         RaycastHit raycastInfo;
         Vector3 rayToTarget = target.transform.position - this.transform.position;
@@ -157,7 +157,7 @@ public class Bot : MonoBehaviour
         return false;
     }
 
-    bool CanTargetSeeMe()
+    public bool CanTargetSeeMe()
     {
         RaycastHit raycastInfo;
         Vector3 targetFwdWS = target.transform.TransformDirection(target.transform.forward);
@@ -172,7 +172,7 @@ public class Bot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   /* void Update()
     {
      switch(mode)
         {
@@ -192,5 +192,5 @@ public class Bot : MonoBehaviour
                 Wander();
                 break;
         }   
-    }
+    } */
 }

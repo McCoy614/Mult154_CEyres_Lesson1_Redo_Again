@@ -31,7 +31,7 @@ public class Patrolling : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void PatrolWaypoints()
     {
         if(Vector3.Distance(transform.position, currentWP.transform.position) < WP_THRESHOLD)
         {
