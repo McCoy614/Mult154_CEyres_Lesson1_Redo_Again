@@ -148,14 +148,18 @@ public class Bot : MonoBehaviour
     public bool CanSeeTarget()
     {
         RaycastHit raycastInfo;
-        Vector3 targetXZPos = new Vector3(target.transform.position.x, 1.5f, target.transform.position.z);
-        Vector3 thisXZPos = new Vector3(transform.position.x, 1.5f, transform.position.z);
+        Vector3 targetXZPos = new Vector3(target.transform.position.x, 0.5f, target.transform.position.z);
+        Vector3 thisXZPos = new Vector3(transform.position.x, 0.5f, transform.position.z);
         Vector3 rayToTarget = targetXZPos - thisXZPos;
-        Debug.DrawRay(this.transform.position, rayToTarget, Color.magenta);
-        if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
+        Debug.DrawRay(thisXZPos, rayToTarget, Color.magenta);
+        if (Physics.Raycast(thisXZPos, rayToTarget, out raycastInfo))
         {
-            if (raycastInfo.transform.gameObject.tag == "Player")
+            Debug.Log("RaycastHit: " + raycastInfo.transform.gameObject.name);
+            if (raycastInfo.transform.gameObject.tag == "Player") 
+            {
+                Debug.Log("Hit Player");
                 return true;
+            }
         }
         return false;
     }
@@ -163,6 +167,7 @@ public class Bot : MonoBehaviour
     public bool CanTargetSeeMe()
     {
         RaycastHit raycastInfo;
+        Debug.DrawRay(target.transform.position, target.transform.forward * 10, Color.blue);
         if (Physics.Raycast(target.transform.position, target.transform.forward, out raycastInfo))
         {
             if (raycastInfo.transform.gameObject == gameObject)

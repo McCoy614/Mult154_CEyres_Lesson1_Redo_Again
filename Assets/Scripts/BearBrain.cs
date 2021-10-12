@@ -33,12 +33,12 @@ public class BearBrain : MonoBehaviour
         else
         {
 
-            if (bot.CanTargetSeeMe())
+           if (bot.CanTargetSeeMe())
             {
                 Debug.Log("Evading");
                 bot.Evade();
             }
-            else if (bot.CanSeeTarget())
+           else if (bot.CanSeeTarget())
             {
                 Debug.Log("In Pursuit");
                 bot.Pursue();
