@@ -151,6 +151,7 @@ public class Bot : MonoBehaviour
         Vector3 targetXZPos = new Vector3(target.transform.position.x, 1.5f, target.transform.position.z);
         Vector3 thisXZPos = new Vector3(transform.position.x, 1.5f, transform.position.z);
         Vector3 rayToTarget = targetXZPos - thisXZPos;
+        Debug.DrawRay(this.transform.position, rayToTarget, Color.magenta);
         if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
         {
             if (raycastInfo.transform.gameObject.tag == "Player")

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-/*
+
 public class UIUpdate : MonoBehaviour
 {
     TextMeshProUGUI textGUI;
@@ -24,4 +24,4 @@ public class UIUpdate : MonoBehaviour
     {
         textGUI.text = string.Empty;
     }
-} */
+} 

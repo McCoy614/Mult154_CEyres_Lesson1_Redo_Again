@@ -27,6 +27,7 @@ public class BearBrain : MonoBehaviour
     {
         if (hiveDropped)
         {
+            Debug.Log("Seeking");
             bot.Seek(hivePos);
         }
         else
@@ -34,14 +35,17 @@ public class BearBrain : MonoBehaviour
 
             if (bot.CanTargetSeeMe())
             {
+                Debug.Log("Evading");
                 bot.Evade();
             }
             else if (bot.CanSeeTarget())
             {
+                Debug.Log("In Pursuit");
                 bot.Pursue();
             }
             else
             {
+                Debug.Log("Wandering");
                 bot.Wander();
             }
         }

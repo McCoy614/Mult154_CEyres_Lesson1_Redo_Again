@@ -19,7 +19,7 @@ public class NavPlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             DroppedHive?.Invoke(transform.position + (transform.forward * 10));
         }
@@ -44,4 +44,4 @@ public class NavPlayerMovement : MonoBehaviour
         rgBody.velocity = move * speed * Time.deltaTime;
         trans = 0;
     }
-} 
+}
