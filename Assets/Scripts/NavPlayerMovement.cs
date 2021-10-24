@@ -67,8 +67,36 @@ public class NavPlayerMovement : MonoBehaviour
     {
         if(other.CompareTag("Hazard"))
         {
-            lookTarget.position = other.transform.position;
+            //lookTarget.position = other.transform.position;
+            StartCoroutine(LookAndLookAway(lookTarget.position, other.transform.position));
         }
+    }
+
+
+    private IEnumerator LookAndLookAway(Vector3 targetPos, Vector3 hazardPos)
+    {
+        Vector3 targetDir = targetPos - transform.position;
+        Vector3 hazardDir = hazardPos - transform.position;
+
+        float angle = Vector2.SignedAngle(new Vector2(targetPos.x, targetPos.z), new Vector2(hazardPos.x, hazardPos.z));
+
+        const int INTERVALS = 20;
+        const float INTERVAL = 0.5f / INTERVALS;
+
+        float angleInterval = angle / INTERVALS;
+
+        for(int i = 0; i < INTERVALS; i++)
+        {
+            lookTarget.RotateAround(transform.position, Vector3.up, -angleInterval);
+            yield return new WaitForSeconds(INTERVAL);
+        }
+
+        for (int i = 0; i < INTERVALS; i++)
+        {
+            lookTarget.RotateAround(transform.position, Vector3.up, angleInterval);
+            yield return new WaitForSeconds(INTERVAL);
+        }
+
     }
 
 }
