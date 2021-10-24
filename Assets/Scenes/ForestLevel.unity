@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: 160842464}
   - component: {fileID: 160842462}
   - component: {fileID: 160842465}
+  - component: {fileID: 160842466}
   m_Layer: 0
   m_Name: NavPlayer
   m_TagString: Player
@@ -477,6 +478,19 @@ CapsuleCollider:
   m_Height: 3.9325562
   m_Direction: 2
   m_Center: {x: 0.01999998, y: 0, z: 0.092659}
+--- !u!135 &160842466
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160842461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &161343626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400030, guid: 0962bdca27eaca34aaa15f7fdf608faf, type: 3}
@@ -2390,7 +2404,7 @@ MonoBehaviour:
     m_WorldUpAxis: 2
     m_MaintainOffset: 0
     m_ConstrainedAxes:
-      x: 1
+      x: 0
       y: 0
       z: 1
   m_SourceObjectsGUIToggle: 1
@@ -3650,7 +3664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715602021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.7, y: 5, z: -68.4}
+  m_LocalPosition: {x: 2.8, y: 5, z: 42.7}
   m_LocalScale: {x: 3, y: 4, z: 3}
   m_Children: []
   m_Father: {fileID: 0}

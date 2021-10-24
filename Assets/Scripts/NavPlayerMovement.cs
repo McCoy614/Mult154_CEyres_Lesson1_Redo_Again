@@ -10,6 +10,7 @@ public class NavPlayerMovement : MonoBehaviour
     float trans = 0;
     float rotate = 0;
     private Animator anim;
+    private Transform lookTarget;
 
     public delegate void DropHive(Vector3 pos);
     public static event DropHive DroppedHive;
@@ -18,6 +19,7 @@ public class NavPlayerMovement : MonoBehaviour
     {
         rgBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
+        lookTarget = GameObject.Find("HeadAimTarget").transform;
     }
     void Update()
     {
@@ -58,6 +60,14 @@ public class NavPlayerMovement : MonoBehaviour
         else
         {
             anim.SetTrigger("TwitchLeftEar");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Hazard"))
+        {
+            lookTarget.position = other.transform.position;
         }
     }
 
