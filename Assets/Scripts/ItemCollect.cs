@@ -28,7 +28,7 @@ public class ItemCollect : NetworkBehaviour
         {
             return;
         }
-        if (itemCollider && Input.GetKey(KeyCode.Space))
+        if (itemCollider && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Space bar and item collected");
             Item item = itemCollider.gameObject.GetComponent<Item>();
