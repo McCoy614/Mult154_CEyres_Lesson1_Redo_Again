@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HiveMat
-  m_Shader: {fileID: -6465566751694194690, guid: 48b0286309eda184f8df3ee50f27e3fd, type: 3}
+  m_Name: HiveMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 8f2626a8e268f624699bb47a70c908fc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
