@@ -38,6 +38,7 @@ public class RiverState : PlayerState
     public RiverState(NetworkBehaviour thisObj) : base(thisObj)
     {
         stateName = "RiverHop";
+        GameData.gamePlayStart = Time.time;
     }
 
 
@@ -202,6 +203,13 @@ public class ForestState : PlayerState
             //lookTarget.position = other.transform.position;
             thisObject.StartCoroutine(LookAndLookAway(lookTarget.position, other.transform.position));
         }
+
+        if (other.CompareTag("Exit"))
+        {
+            NetworkManager networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+            networkManager.ServerChangeScene("EndScene");
+        }
+
     }
 
     public override void OnTriggerExit(Collider other)
@@ -250,12 +258,20 @@ public class PlayerContext : NetworkBehaviour
             currentState = new RiverState(this);
         }
 
-        if (SceneManager.GetActiveScene().name == "ForestLevel")
+        else if (SceneManager.GetActiveScene().name == "ForestLevel")
         {
             currentState = new ForestState(this);
         }
 
-        currentState.Start();
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        if (currentState != null)
+        {
+            currentState.Start();
+        }
     }
 
     private void Update()
