@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32016993, g: 0.25870633, b: 0.36818776, a: 1}
+  m_IndirectSpecularColor: {r: 0.32016838, g: 0.2587053, b: 0.36818525, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -439,7 +439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160842461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6, y: 2, z: 4.3}
+  m_LocalPosition: {x: -5.6, y: 5.35, z: 10.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1729162289}
@@ -487,10 +487,10 @@ SphereCollider:
   m_GameObject: {fileID: 160842461}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 12.572196
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!4 &161343626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400030, guid: 0962bdca27eaca34aaa15f7fdf608faf, type: 3}
@@ -1633,7 +1633,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 1d145dfcd4b99e844916ef67d655477e, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &649614223
 Terrain:
   m_ObjectHideFlags: 0
@@ -2323,13 +2323,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747163884}
-  m_LocalRotation: {x: 0.16983745, y: -0.09085329, z: 0.11365348, w: 0.9746712}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.58254415, y: 0.0495762, z: 0.14401136, w: 0.7984018}
+  m_LocalPosition: {x: -6.6, y: 60.2, z: -21.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 20.593, y: -8.508, z: 11.754}
+  m_LocalEulerAnglesHint: {x: 66.338, y: 37.975, z: 45.799}
 --- !u!1 &882926801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,13 +3330,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503169022}
-  m_LocalRotation: {x: -0, y: -0.5398448, z: -0, w: 0.84176457}
-  m_LocalPosition: {x: -71.1, y: 4.9, z: 88.6}
+  m_LocalRotation: {x: -0, y: -0.7283246, z: -0, w: 0.68523234}
+  m_LocalPosition: {x: 62.4, y: 4.9, z: 41.5}
   m_LocalScale: {x: 10, y: 10, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: -65.346, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -93.492, z: 0}
 --- !u!4 &1509202364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 0962bdca27eaca34aaa15f7fdf608faf, type: 3}
@@ -4231,7 +4231,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1898208846}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
