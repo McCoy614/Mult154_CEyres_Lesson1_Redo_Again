@@ -77,7 +77,7 @@ public class ScoreList : MonoBehaviour
             rtrans.pivot = new Vector2(0.5f, 0.5f);
             rtrans.localPosition = new Vector3(0, offset, 0);
 
-            offset = -35;
+            offset -= 35;
         }
 
         finalPanel.SetActive(false);
